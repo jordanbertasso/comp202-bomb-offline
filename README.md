@@ -1,5 +1,5 @@
 # Usage
-You can either run it directly from Docker Hub with
+You can either run it directly from Docker Hub with or you can build it from source as described below
 ```
 $ BOMB_DIR=<The directory of your bomb executable>
 $ docker run -it --security-opt seccomp=unconfined -h ash -v $BOMB_DIR:/bomb jordanbertasso/comp202-bomb-offline
@@ -7,6 +7,7 @@ $ docker run -it --security-opt seccomp=unconfined -h ash -v $BOMB_DIR:/bomb jor
 
 ## User password
 Your user password will be your SID
+
 
 # Build from source
 
