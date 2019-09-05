@@ -5,5 +5,6 @@ cd /bomb
 
 echo Your Student ID:
 read SID
-useradd -rUm -s /bin/bash $SID
+
+useradd -rUm -s /bin/bash $SID && echo "$SID:$SID" | chpasswd && adduser $SID sudo
 su $SID
