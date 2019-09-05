@@ -5,6 +5,9 @@ $ BOMB_DIR=<The directory of your bomb executable>
 $ docker run -it --security-opt seccomp=unconfined -h ash -v $BOMB_DIR:/bomb jordanbertasso/comp202-bomb-offline
 ```
 
+## User password
+Your user password will be your SID
+
 # Build from source
 
 ## Step 1
