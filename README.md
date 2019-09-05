@@ -1,6 +1,7 @@
 # Usage
 You can either run it directly from Docker Hub with
 ```
+$ BOMB_DIR=<The directory of your bomb executable>
 $ docker run -it --security-opt seccomp=unconfined -h ash -v $BOMB_DIR:/bomb jordanbertasso/comp202-bomb-offline
 ```
 
