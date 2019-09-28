@@ -4,34 +4,28 @@ import socket
 
 HOST = "127.0.0.1"
 PORT = 20207
+OK_SIGNAL = b"OK\n\n\n"
 
 def main():
-    while True:
-        try:
-            s = socket.socket()
-            s.bind( (HOST,PORT) )
+    with socket.socket() as server:
+        server.bind((HOST, PORT))
+        server.listen(1)
 
-            s.listen(1)
-            conn, addr = s.accept()
-            print( "Connection from: " + str(addr) )
+        while True:
+            client, addr = server.accept()
+            print(f"Connection: {addr}")
 
-            while True:
-                data = conn.recv(1024).decode()
-                print ("from connected  user: " + str(data))
+            with client:
+                data = client.recv(1024)
+                print(f"Recieved: {data}")
+                try:
+                    print(f"@'''\n{data.decode()}\n'''@")
+                except UnicodeDecodeError:
+                    pass
 
-                data = "OK\n\n\n"
-                print ("sending: " + data)
-                conn.send(data.encode())
+                client.send(OK_SIGNAL)
 
-            conn.close()
-        except Exception as e:
-            try:
-                print(e.message)
-            except:
-                continue
-
-            print("Continuing")
-            continue
+            print()
 
 if __name__ == '__main__':
     main()
