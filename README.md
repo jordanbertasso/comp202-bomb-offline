@@ -1,5 +1,5 @@
 # Usage
-You can either run it directly from Docker Hub or you can build it from source as described below
+You can either run it directly from Docker Hub or you can build it from source as described below. \
 I recommend building from source, as there is no promise that the dockerhub image will be up to date.
 ```
 $ BOMB_DIR=<The directory of your bomb executable>
